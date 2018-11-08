@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ms2>
+	<melody>
+		<![CDATA[
+v15>fcv14dv15<a+v14av15a+v14gv15av14a+>cdd+v15cv14dv15d+v14afv15dv14d+n58c<a+a+aa+>cdn58cd+dd+f<a+.>a+g8f<a+.>fl8d+ddd+fl4n58cdv15d+v14dd+f<a+.>a+g8f<a+.>fv15d+8v14l16drdrd+8fd4&dl4n58cd+v15d<arv11fv10b+v11a8a+.a+v10av11a+ag8v10f.v11>cdd+<a+v10av14a+v11fv10b+v11l8aa+2.&a+a+>cv15d4l16crc4r4rv14d+f4.&fr2rv15l8frn58cr<a+4r4.a+>crd16c16<a+rf.r16a+v14>crv15d+4rdd+16d16v14c<a+ra+f.r16v15>f.r16n58v14cr<a+4rf4v15a+>crd16c16n58rfrv14n58ra+arfrl16drcrv15<a+4l8b+a+>fga+rv12fv15ga+4rl16>drdrl8dv12c2v15<fgv14a+rv12fgv15a+4>d4v14l16drcrdrv15l8c<a+gfgv14a+rv12fgv15a+4r4l16>drdrc4v14<a+4r8v11<gaa+b+aa+>cdn58cdd+cdd+fgaa+b+aa+>cdn70cdd+cdd+fgaa+b+aa+>cdn82cdd+cdd+fgaa+b+v12aa+>cdn94cdd+cdd+f<a+1
+]]>
+</melody>
+	<chord index="1">
+		<![CDATA[
+v14r1r1r1.ral1.rrrrrrrr2v13l4o6cd+dv15<arfb+a8a+.a+aa+ag8f.>cdd+<a+aa+fb+l8aa+2.&a+a+>cd4l16crc8v13<<fa+>cdcv7dv13d+v12>d+v15fv12<<a+v14>cv12dv14d+v12dv14d+v13fv12d+v13fgv14av15fv13gv14afv15l8>frn70cr<a+4rfra+>crd16c16<a+rf.r16a+>crd+4rdd+16d16c<a+ra+f.r16>f.r16n70cr<a+4rfra+>crd16c16n70rfrn70ra+arfrv9l16<<crcrv10crv12crv10crv12crv9cl1.rrrrr1l16rv7>crv8crcrv9crcrcrv10crcrv11crcrv12crcrcrv13crcrv14crcrv15crcrcrcrcrcrcrv14a+1
+]]>
+</chord>
+	<chord index="2">
+		<![CDATA[
+v11o1a+l8r>c2rd4rd+2rd4rg2rc4b+16r16f4b+f+4d+.>d+16r<d4>d<d>d<c4b+16r16d4>d<d>d<d+.r16f.g.gcd+l16frfrfrfrfrf8f8.r<a+4>a+rc2l8b+d4rd+2n39d4rg2gc4rf4b+f+rl16d+rd+r8.d4.r4crcr8.d2&drd+8.rf8rg2rf1d+4l8rd2rc4r<a+ra+>cdd+4rd2rc4r<a+4.&a+16r.>d+4rd2rc4r<a+.r16a+n34l16a+rg+4r8g+4g+4n32rf4.&frfr>frfrfr<a+4l8r>d+2rf4rg2rd4rd+4.&d+16r.f4r<a+2&l16a+ra+4>a+8d+2r8f4b+rg2>d8<d4>dr<d+4>d+8<d+8>d+8<frfrfrfrfrfrfrfrd+4&d+rd2r8c4b+r<a+2&a+8>d+4>d+8<d2&drc4b+r<a+2r8>d+4>d+8<d2r8c4b+r<a+4.&a+r8.>f2.&f8.rv9frfrv10frfrfrv11frfrv12frfrfrv13frfrv14frfrv15frfrfrfrfrfrfrfrfrfrv11<a+1
+]]>
+</chord>
+	<chord index="3">
+		<![CDATA[
+v10<f.g2&g8v12a.v10g2&g8v12f.v11f2&f8v10g.v11ar8v12a8.l16rv10g8rv9gl8rv11a4rarv10gr16v9g16rv10f4rfrg.l16rf8.v11g4&gg4r8v8frfrv10frv11f8.rf8.rf8rv10fl8rg4rgrv11ar16v10a16rg4rgrv11fr16v10f16rv11f4rfrv10gl16rgr8v11a4r8v12a8.rv10grv11gr8.a4.r4v10grgr8.v11f2&frg8.rf8rf4.&fl8rf4v9gv10a2&ag4rl4fd.gr8f2r8gr8fd.gr8v11fv12<a+.v9>gr8v10fd.v9gr8v11f.&f16r8.v10g+r8v9g+l8rv10g+.r16f4rfrv9l16frv10frv11frf4l8rv10g4v11d+v10gd+v11ar16v10a16rf4v9dv10fv8dv10fr16v9f16rv10g4d+gd+fl16rv9fr8v11f8r8v10frv11f8r8f8rv9fl8rv10g4v11d+v10gd+v11ar16v10a16rg4rgrfl16rv9fr8g4r8v10g4r8v4crv8crv9crv10crcrcrv9crv10g4&grl4fv7d.v10gr8v11fv10<a+.>gr8v11fv9d.v10gr8v11f<a+.v10>gr8fdl16&drg4r8f4<a+4&a+rv8>f8v7c2.&crv6>crcrv7crcrv8crcrcrv9crcrv10crcrv11crcrv12crcrcrv13crcrv14crcrv15crcrcrcrv11<f1
+]]>
+</chord>
+	<chord index="4">
+		<![CDATA[
+v10<a+.v11a+2&a+8b+.a+2&a+8a+.a+2&a+8a+.>cr8d8.l16rv10<a+8ra+l8rv11>c4rcrv10<a+r16a+16rv11a4rarv10a+.l16rv11a8.a+4&a+a+4r8v9arv10ararv11a8.rv12a8.rv11a+8rv10a+l8rv11a+4ra+r>cr16v10c16rv11<a+4ra+ra+.v10a+16rv11a+4ra+ra+l16ra+r8v10>c4r8d8.rv11<a+ra+r8.b+4.r4a+ra+r8.a2&ara+8.rv12a8rv11a+2ra8v10c2.&c8v11a+4r8v10a+4.f8v9a+rv11a+4r8a+2r8v10a+4r8a+4.f8v9a+rv10a+4r8a+4.f8v11a+ra+4r8v10a+4.f8v9a+rv10a+4r8a+4.&a+l8r.>c4rc4rc.r16v11<a4rv10arl16arv11arara+4l8rv10a+4rv11a+rv10b+4ra+4rv11a+ra4rv10a+4rv11a+ra4rv10a+rv11a+16r16a+ra+4rv10a+4ra+rb+4ra+4rv11a+ra4rv10a+4rv11a+4rv8l16frv9frv10frv11frv10frv11frv9frv11a+4&a+rv10a+4&a+rf8v9a+rv10a+4r8a+4.f8v9a+rv10a+4r8a+4.f8a+rv11a+4r8a+4.v10f8a+ra+4r8a+4.f8v9a+rv10a+4r8a+4.v11f8a+rv10a4f8.ra4v14>f8r8v8frv10frfrfrv11frv10frfrv11frfrv12frfrv13frv14frv13frfrv14frv15frfrfrfrfrfrfrfrv10d1
+]]>
+</chord>
+	<chord index="5">
+		<![CDATA[
+v10d.d+2&d+8v14f.v10d+2&d+8v11d.d2&d8d+.fr8f+8.l16rv10d8rdl8rv11f4rfrv10d+r16v9d+16rv10c4rcrd+.l16rc8.v11d4&dv10d+4r8v8crv9crv10crv11c8.rc8.rv10d8rdl8rd+4rv11d+rfr16f16rv10d+4rd+rdr16d16rv11d4rv10drd+l16rd+r8v11f4r8f+8.rv10drv11dr8.f4.r4v10d+rd+r8.v11c2&crd8.rc8rd4.&dl8rv10c4.rcf4v15b+v11d+4rv10d2rd+4rd2rd+4rd2rd+4rd2rd+4rd2rd+4rd4.&d16r.d+4rv9d+4rv10d+.r16c4rcrv9l16crv10crv11crv10d4l8rd+4rd+rv15f4rv10d4rdrc4rd+4rd+rc4rdrl16drv11d8.rd4l8rv10d+4rd+r2d4rv11drv10c4rd+4rd+4rl16<arararv11arararv10ar>d+4&d+rd2r8d+4r8d2&drd+4l8rd2rd+4rv11d2rv10d+4rd2rd+4rd2rv9c4r<gr>c4g.l16rgrv10grgrv11grv10grv11grgrv12grgrgrv13grv14grv13grv14grgrv15grgrgrgrgrgrgrgrv12a+1
+]]>
+</chord>
+</ms2>
