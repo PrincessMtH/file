@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ms2>
+	<melody>
+		<![CDATA[
+t145r1r1v13l8<a>c16egf+.d<<a>g+16.&g+64v11g+64v13ga+16>d<d>gv10ev8ev6ev4e16v13<c.e.c4ce4d.<a+.>d16l64&dv9>ff+v11gv13l8.<<ggl16n53v7f+v13a2&a8>f8e8cdv11<c-2g+8.v13>>f+8.b8b+4.av12<cv13l8>b+v11<e.v13g+v12cv13c-.v12>e.v11<<a.v12n42v13av14av13l4>ffc->b8l16b+ba8>b8>c&c64<b.g&g64a2l8<<ac<a>e<a>e>f32g32f16ed<d<g>d<g>cv7ev13>e16f16<<f4v9fv13>f2&fv11<c-2g+.v13>>f+.bb+4.a16v12<c16v13>b+v11<e.v13g+v12cv13<b.o5c+16v10<<bv11<f+4&f+16v13f+v14av13>f4>>d64l8.ef64e32d4<g4.n28gav9ev6a8v10l16<dv13<gga4&ag8.a4&al8.>cdv10a+4a8v13c16v10av13<gav10>g4.v13<g4v10l16>e&e64v13c.v10a&a64a+&a+64a.g&g64e2v13>a8v12<f8<fade8>e8<b8egg+a8>c8gal8<a>gv13>ab>cd.v12<<ab16<g+4g+g+g+v13o5d4v12o2g+v10>ev12<gv10>ev12l4<<f+f.v13o4b>b.e16e2&e16<a.>d+ef+<bv12l1o1e>eel16o5b+ba2.&a8o2d8>d8<d8>d<d8d>co6c8.d8c<ba2.&a8>c64v9c+32.v12e4&ed4.c4<b8.v9<eagecgec<a>ec<agv12<d8>d8<d8>d<d8v9>>df+af+a>cdc<ageagecgec<a>ec<agf+a>cd<a>cdv12<<d8v9>>df+al32f+.v12<<f+e.v9o5c.v12o2c<b.v9l16o6b+agev12o1a8>av9o6cgec<a>ec<agf+a>cd<a>cdf+cdf+af+&f+64v14<<g32.v9o7c&c64v14o4d32.v9>>b+ageagecgec<a>ec<agf+a>cd<a>cdf+cdf+af+a>cdc<ageagecgec<a>ec<agf+&f+64v14<a32.v9>>cd<a>cdf+cdf+af+a>cdc<ageagecgec<a>e&e64v14<d32.v9agf+&f+64v14<g.&g64v9>>dv12o2d8v9n74v12d8v9o6df+al32f+.v12o2f+v14o5d.v9>>c.v12o2cv14>>g.v12b+.ag.v9b+.ag8v7g8v4g.v2b+.ag1&g1&g1&g4.&g.v13l8<<a>c16egf+.d<ag+ga+16>dfe.c<gg+>a>c16egf+.d<<a>g+16.&g+64v11g+64v13<ga+16>>d<d>gv10e16v13f16<f>agv10>cv8cv6<gv4g16
+]]>
+</melody>
+	<chord index="1">
+		<![CDATA[
+t145v13l8<a>c16egf+.d<ag+ga+16>dfe.c<gg+<a>c16egf+.dv15l64>>agf+edv13c<a+al8<<g+ga+16>d>a<ev10>gv8gv6gv4g16v13<g.>c.d16.l64&ddd+e16.&eg8l16fe8.d8en31f8d<c+v7e8v13b+v7e8v13b+v7c8v13<f8.v9f8.fv10fv13fv11f8f4&fb2l8.bv13>>ag+8<<a>a16b+8v12e8v13n32v11g+16v12l8b+v14ev13<gv9>e16v10bv13>gv11<<f+.v12av13>>g64g+64a16.bb32>c.&c32el16fed4<g4>e2e&e64e.d&d64o1a4l8>a>b>cdeg<<ag+g>>efl16n34f32g32a8g<<gg8f+8a4.b+4.v11l32f.a>c.f.v13av14b+.v11<b2l8.bv13>>ag+8<<a>a16b+8v12e8v13n32v11g+16v12b+8v14e8v13<gv10>b8v13>>e16v10<<e16v13l64>>g+a8&a32.gfedc+<bag+gg+a16.b8b32l8.>c&c32o2f4>>b4<g4.>gn23ev9av6e8v13l16<<gv10>dde4&ed8.e4&el8.gav13d64d+&d+32.d8v10g16v13dv10dev13c4.v10d4v13l16<a&a64v10>g.v7>>d&d64v9d+&d+64v13e.g&g64a4<cdl32e.fg.v12<<f8v13l16>>bb+v6av13>ev6cv13f+64g8&g32.fv6gv13ev6fv13dv6ev13d64e8&e32.cv6ev12<<cv13>a4v12<<a>ac-v6>av12<cv6>bv12<c-8g+c-8g+l4e<b8b8b8<ag+gv13o4av12<<a.g+.b>c.e.ev13>bag+f+v12<<b1<e1>>e1v9l16>b+ageagecgec<a>ec<agf+a>cd<a>cdf+cdf+af+a>cdc<ageagecgec<a>ec<agf+32v10o6d64v11d+64v9o3a>cd<a>cdf+cdf+af+a>cdc<agv12>a2.&av9<<f+a>cd<a>cdf+v12l8>b.>c.del64ef32f+g8&gc8l32.&c<b8&b>c8&c32d8&dl16c<ba2.&a8v14<<g+64a.&a64>cdv9n81v14d+v9n76v14e8ad+32d32cd<ab+gf+gab+8a>cd8d+eab+32.a64v9n81v14e32.d+64v9n86v14c8<a>d8<ab+8a>c+d<ab+agab>cv8cv14ccdv8dv14f+v8f+v14f+f+gv8gv14a>cv8cv14d+eed+eed+eed+eed+dc<ag32.g+64v9>av14cd8<f+gab+8a>d8cef+gav10av14gav10av14gav10av14gage32.d+64v9b+v14c<a32g32f+v9>ab+32.v14<a&a64v9>al32.b+v14c+64d4b+a32ged+64v9>a16v14<c<a64v9o7d16v13o2a8>c16e16v7>b+a64v13<g16v4>b+a64v13l8<f+.d<ag+ga+16>dfe.c<gg+>a>c16egf+.d<ag+ga+16>dfe.c<gg+a>c16egf+.d<ag+ga+16>dfe.c<gg+<a>c16egf+.dv15l64>>agf+edv13c<a+al8<<g+>ga+16>ffev10g16v13<<f16>>f<agv10>gv8gv6>cv4c16
+]]>
+</chord>
+	<chord index="2">
+		<![CDATA[
+t145r1r1.rv13<a8l64>gv11f+edc<a+l8a.&a32v13>ffe2&e16l8.<ece4e8c4n34d4&d16c>g<<g8>c2.&c16f>del8f+<<e2&e16v10>c4v12av13>bv11<cv13>>d.e4c+e.v11<<f+.v12n30v13f+v14f+v13l4<f>cd<b<a2l16o4a&a64e.d&d64l4<c.ecc2<a+l32>>de8.&ev7l8<ev13c4c4.>c2&cd.e.f+<<e2&e16v10>c4v12av13>bv11<cv13>>d.e4dv12<e.v11<<a4.&a16v14n42v13l4f>fc->b.v9l8.bbv13l1o1a&a&a&a2&a8&a32.l16>>d&d64d+&d+64d.c&c64<a2&a8v12a8.b+4b8>d4.&de8.v6>b+8.v12<e8.e4.&ebv13>>g64a.&a64v6av12<<c-4l8efg<av10>ev13>>cl32&c.dc.<b4v12l8<<f+v10>ev13>f4fl4.>dg+4v12o1av13o4ab4v12<d+c+d+4v13l8>ev12f+ev10d+ev12f+v13ev14d+l16eg+v12bg+e8e8f8e8>d4v14<eg+v12bg+>e8e8f8defgabo1a8>a8<a8>a<a8a>gal8<a>a2&ao5b.<<d16<d>d<<a>a<al16>a<a8a>gal8<a>ad>d<dl16>d<d8d>cdl8<d>d<<a>a<al16>a<a8a>ga<a8>a2&a8v9>b+v12<d>cdl8<d>d<<a>a<al16>a<a8a>gal8<a>ad>d<dl16>dv9>f+cv12<<d>cd<av9n57v12dv9o5dv12o1a8>a8.v9o6g8v12o1a8a>gal8<a>ad>d<dl16>d<d8d>cdl8<d>d<<a>a<al16>a<a8a>gal8<a>ad>d<dl16>d<d8d>cdl8<d>d<<a>a<al16>a<a8a>gal8<a>ad>d<dl16>d<d8d>cdl8<d>d<<a>a<al16>a<a8a>ga<a8>a8d8>d4dv9o6f+cv12o2d>cd<a&a64e32.d&d64v0l1<b&b&b&b&b&b&b2.&b32.v13>>a8l64>gv11f+edc<a+l8a.&a32v13d>a<e4>a+>dc16
+]]>
+</chord>
+	<chord index="3">
+		<![CDATA[
+t145l1rrrrv13l8.o2aaa4a8a4g2v12>>g+64v13a8&a32.<c4&c16>e1f+g+a8e8v11<g+e4l16&ev10e1&e4&ev13>a4&al8<<f+v14f+v13l4b+fg>d<a2<a>a1&a1>>fe2l8&ev8<<f4.v13>>f+.g+.aev11<g+.e4l16&ev10e1v9e4&ev11f+2&f+v13l4ccdl1<b&b&b&b&bl4&b.v12>c8.fd8e.&e16l8.ae<a2.&a8v13o5g+4l16fv6g+v13ed.&d64l32de8&e.v10l4<<ag+gf+v13>>ev12o1e.g+&g+32v13o5f8.&f32c2v12o2c<bagfv13o5e1&ev12c-c<b2bb+g+
+]]>
+</chord>
+	<chord index="4">
+		<![CDATA[
+t145l1rrrrv13<a&al8&afe16f2.&f16v12f+.f+.v13n56v11e.g+1&g+1&g+2.&g+.v13<g4>c2c4l16>edc<b1&b1l8.&ba1v12f+f+v13>g+8v11<eg+1&g+1&g+2&g+v13g4l1d&d&d&d&d&d&d&d&d&d&d8>>f2v12o1a2v13o5c&c8v12o2g+l4&g+>>g+ag2g+ab
+]]>
+</chord>
+	<chord index="5">
+		<![CDATA[
+t145l1.rrrrl8.rv13<ab+2.v12bl1b&b&b&b2.l16&bv13>b8>c&c64<b.g&g64l1<<a&a&a2&a8>fv12l8.bb
+]]>
+</chord>
+</ms2>

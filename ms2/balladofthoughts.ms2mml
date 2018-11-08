@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ms2>
+	<melody>
+		<![CDATA[
+t132v11l2.<ddddddddv13dc<a+agaa+a4a2>dc<fga+b+a+b+a+b4.b4l8f+>c+d<b2d2.e2&ec-l4e<be>d+.>d8d+d<a8d.<g2l8>d<ga2gaa+2&a+>fl2.<a+al4.>eabf+c-2d8d+8l2.edcl4abaa.e.gdf+<f+2n25b.>f+8<a>cb+.l8cfc<f4.b>e4.>de<dl4c+<a>acgl8b>cd4<d2c+2rn20c+4.c+d+el2.cdl1<e&e&e
+]]>
+</melody>
+	<chord index="1">
+		<![CDATA[
+t132r8v9l2.<aaaaaaaav11aaf2&f8b+4a4g4.def2f8b4>c+2&c+8<aacdfgf2f8g4>c2ff+1l4df+g.f+.<b.l8c-df+g4bc->d4<a+2.a4r4gaa+2.b+2fgadfb+4.a4.>cfge2l4>dc+<a2ef+n61d+>d+2l8&d+<<ef+ga>d<b2.&bef+gbel4agf+ag2e<b8a>d8a.>e.d+2<b2gab>dgf+edc+<bag2f+g2f+e2c+8d+8e.f+8g+8>e.l2ra&a8.r32.<b1&b64>b>b1&b
+]]>
+</chord>
+	<chord index="2">
+		<![CDATA[
+t132rv7l8ef2&fef2&fef2&fef2&fef2&fef2&fef4.>a4<ef2&fv8ef2&fef2&fcd4.g4f4e2<aa+2&a+b>c2&ccd4.d4e2.ef2&fef2&f<ga2&aaa+2&a+>cd2&dde2&ecl4.dd4e2>dc<a1&a4a8b8b+bg1l4&grg2dfged2aeacd2aa>d2<a2>ae2.e.<b.b>>b2<<g2.gef+g.ag8f+eddc2l4.c-dc+af+2.&f+8<el4f+fb>edc+<bagf+e2d<a2>dg+2e8f+8g+.d+8e8b.b2>f+2&f+8.r64e1&e&e32.>e1&e2.
+]]>
+</chord>
+	<chord index="3">
+		<![CDATA[
+t132rv4l8>dv6<av8>dv10<av12>d<av11>dv8<av5>dv3<a4.v4>dv6<av8>dv10<av12>d<av11>dv8<av5>dv3<a4.v4>dv6<av8>dv10<av12>d<av11>dv8<av5>dv3<a4.v4>dv6<av8>dv10<a16>d64f32a64v11>d2.v12<d2.efg2l4>cd2<gfed2l8cgd2c4dcd2g4e2d2.efg2l4>cd2<gfed2l8cgd2cadcd2l4gea>d.c.<a1&aa8b8b+.ba8g1&gg8a8a+.a8gfgel8ded2ded4.cded4.cdaa4.ga1&a1l2&abe.f+8g8a>d4e<a4f+el8dae2d4e4.ebab2.e2.f+ga2l4>de2<agf+e2l8dae2dbe1&e2ede2l4af+de1&e
+]]>
+</chord>
+	<chord index="4">
+		<![CDATA[
+t132l1.rrrrrrrrrrrrrrrrrrrrv9l2b.>d8d8f+g4gf+4dcl8cc<b2b4>c+4.c+eef+2.c-2.d+d+d+2l4bb2f+ec+c2l8cc<b2bn66b1&b2
+]]>
+</chord>
+	<chord index="5">
+		<![CDATA[
+t132l1.rrrrrrrrrrrrrrrrrrrrl2r.v9b8b8>de4ed4<agg8g8f+f+4a>c+8c+8d+.<g.b8b8b>g4gc+4<b4a4gg8g8f+f+8>d8<g+1&g+
+]]>
+</chord>
+</ms2>
