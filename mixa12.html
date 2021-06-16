@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>MIXA IMAGE LIBRARY Vol.12 previews</title>
+<style>
+	body {
+		margin:0;
+	}
+	#populate {
+		font-family: sans-serif;
+
+	}
+
+	div.gallery:hover {
+		background: #ddd;
+	}
+
+	div.gallery img {
+		width: 100%;
+		height: auto;
+	}
+
+	div.desc {
+		padding: 2px;
+		text-align: center;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	.responsive {
+		padding: 0 6px;
+			margin: 6px 0;
+		float: left;
+		width: 24.99999%;
+	}
+
+	@media only screen and (max-width: 700px) {
+		.responsive {
+			width: 49.99999%;
+			margin: 0 0 6px 0;
+		}
+	}
+
+	@media only screen and (max-width: 500px) {
+		.responsive {
+			width: 100%;
+		}
+	}
+</style>
+</head>
+<body>
+	<h2 style="border-bottom: 5px solid #433722;"><img src="https://cdn.discordapp.com/attachments/800611584414187521/854758668934578216/413205HFBSL.png" width="100"> MIXA IMAGE LIBRARY Vol.12　自然美術館</h2>
+
+	<div id="populate">
+		Please enable JavaScript.
+	</div>
+
+	<hr>
+	<div style="font-size:75%;text-align:right;color:#9c9092;">
+		<i>images © SOURCENEXT CORPORATION, made for VGTP ease of access</i>
+	</div>
+
+	<script>
+		var target = document.getElementById("populate");
+		var template = "<div class=\"responsive\"> <div class=\"gallery\"> <a href=\"http://de-con.mixa.jp/search/detail.html/MTR020xx\"> <img src=\"http://de-con.mixa.jp/images/si/detail/MTR02/MTR020xxL.JPG\" alt=\"MTR020xx\" width=\"600\"> </a> <div class=\"desc\">MTR020xx</div> </div> </div>";
+		var genHTML = "";
+		var i;
+		for (i = 1; i <= 80; i++) {
+			var nst = "";
+			if(i > 9)
+				nst += i;
+			else
+				nst = "0" + i;
+			genHTML += template.replaceAll("xx", nst);
+		}
+		console.log(target);
+		target.innerHTML = genHTML;
+	</script>
+</body>
+</html>
