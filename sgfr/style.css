@@ -1,0 +1,117 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	background: #888 url("img/bg.png");
+	margin: 0;
+	padding: 0;
+	font-family: "Tahoma", sans-serif;
+	color: black;
+}
+#container {
+	max-width: 1024px;
+	background: #ffffffaa;
+	border-left: #000 solid 1px;
+	border-right: #000 solid 1px;
+	height: 100vh;
+	margin: 0 auto;
+	overflow: auto;
+}
+#header {
+	background: white;
+	height: 80px;
+	border-bottom: #000 solid 1px;
+}
+#navlinks {
+	float: right;
+}
+#navlinks a {
+	float: left;
+	display: block;
+	color: black;
+	font-size: large;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 29px 29px 29px 0px;
+	text-decoration: none;
+}
+.youarehere {
+	text-decoration: underline !important;
+}
+#navlinks a:hover {
+	color: #888;
+}
+
+.albumsplash {
+	height: 400px;
+	background-size: cover;
+	background-position: center;
+	border-bottom: #000 solid 1px;
+	position: relative;
+}
+.albumsplash span {
+	color:white;
+	background: #00000088;
+	padding: 10px;
+	font-size: xx-large;
+	position:absolute;
+	bottom: 10px;
+	left: 10px;
+	margin-right: 10px;
+}
+.releasetext {
+	margin: 20px;
+}
+
+.rs-container {
+	margin: 20px;
+}
+.rs-album {
+	width: 24.99999%;
+	float: left;
+	display:block;
+	padding: 10px;
+	background: #ffffff88;
+	color: black;
+	text-decoration: none;
+}
+@media only screen and (max-width: 800px) {
+	.rs-album {
+		width: 33.33332%;
+	}
+}
+@media only screen and (max-width: 600px) {
+	.rs-album {
+		width: 49.99999%;
+	}
+}
+@media only screen and (max-width: 360px) {
+	.rs-album {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+}
+.rs-album:hover {
+	background: white;
+}
+.rs-cover {
+	border: #000 solid 5px;
+	width: 100%;
+	height: auto;
+}
+.rs-id {
+	font-size: large;
+}
+.new:after {
+	content: "NEW!";
+	float: right;
+	font-size: small;
+	background: red;
+	color: white;
+	padding: 3px;
+	border-radius: 5px;
+	font-weight: bold;
+}
+.rs-name {
+	font-weight: bold;
+}
