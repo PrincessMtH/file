@@ -59,8 +59,47 @@ body {
 	left: 10px;
 	margin-right: 10px;
 }
-.releasetext {
+.text {
 	margin: 20px;
+}
+.heading {
+	display: flex;
+	justify-content: center;
+	position: relative;
+	text-transform: uppercase;
+}
+.heading:before {
+	content: "";
+	width:100%;
+	position:absolute;
+	top: 48%;
+	height:4%;
+	background: linear-gradient(90deg, #000000ff, #00000000, #00000000, #000000ff);
+}
+table {
+	min-width: 60%;
+	margin: 0 auto;
+}
+table, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	font-size: large;
+	font-weight: 700;
+}
+ol {
+	display: table;
+	margin: 0 auto;
+}
+li {
+	padding:10px;
+	font-size: small;
+}
+li b {
+	font-size: large
+}
+li i {
+	font-size: medium;
 }
 
 .rs-container {
