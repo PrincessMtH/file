@@ -101,7 +101,6 @@ body {
 }
 .rs-id {
 	font-size: large;
-	font-weight: 300;
 }
 .new:after {
 	content: "NEW!";
