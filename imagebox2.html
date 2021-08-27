@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>IMAGE BOX Vol.2 山岳 previews</title>
+<style>
+	body {
+		margin:0;
+	}
+	#populate {
+		font-family: sans-serif;
+
+	}
+
+	div.gallery:hover {
+		background: #ddd;
+	}
+
+	div.gallery img {
+		width: 100%;
+		height: auto;
+	}
+
+	div.desc {
+		padding: 2px;
+		text-align: center;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	.responsive {
+		padding: 0 6px;
+			margin: 6px 0;
+		float: left;
+		width: 24.99999%;
+	}
+
+	@media only screen and (max-width: 700px) {
+		.responsive {
+			width: 49.99999%;
+			margin: 0 0 6px 0;
+		}
+	}
+
+	@media only screen and (max-width: 500px) {
+		.responsive {
+			width: 100%;
+		}
+	}
+</style>
+</head>
+<body>
+	<h2 style="border-bottom: 5px solid #433722;"><img src="http://dezanomoto.jp/pic-labo/simg/dj-ib002.jpg" width="100"> IMAGE BOX Vol.2 山岳</h2>
+
+	<div id="populate">
+		Please enable JavaScript.
+	</div>
+
+	<hr>
+	<div style="font-size:75%;text-align:right;color:#9c9092;">
+		<i>images © Image DJ Japan, made for VGTP ease of access</i>
+	</div>
+
+	<script>
+		var target = document.getElementById("populate");
+		var template = "<div class=\"responsive\"> <div class=\"gallery\"> <a href=\"http://www.explode.jp/s/dj-ib/dj-ib002/dj-ib002-xxx_jpg.html\"> <img src=\"http://www.explode.jp/s/dj-ib/dj-ib002/l/dj-ib002-xxx.jpg\" alt=\"dj-ib002-xxx.jpg\" width=\"600\"> </a> <div class=\"desc\">dj-ib002-xxx.jpg</div> </div> </div>";
+		var genHTML = "";
+		var i;
+		for (i = 1; i <= 200; i++) {
+			var nst = "";
+			if(i > 99)
+				nst += i;
+			else if(i > 9)
+				nst = "0" + i;
+			else
+				nst = "00" + i;
+			genHTML += template.replaceAll("xxx", nst);
+		}
+		console.log(target);
+		target.innerHTML = genHTML;
+	</script>
+</body>
+</html>
