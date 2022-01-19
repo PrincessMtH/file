@@ -1,0 +1,23 @@
+{
+    "manifest": {
+        "name": "Amysis",
+        "author": "MtH#5468",
+        "version": "1.0.0",
+        "license": "CC BY-NC-SA 4.0",
+        "updater": "https:\/\/raw.githubusercontent.com\/PrincessMtH\/file\/master\/amysis.json"
+    },
+    "background": {
+        "url": "https:\/\/cdn.discordapp.com\/attachments\/651415527641579563\/933150830977220648\/aliu.png",
+        "overlay_alpha": 0,
+        "blur_radius": 0
+    },
+    "fonts": {},
+    "simple_colors": {
+        "background": 1224736768,
+        "background_secondary": 603979776,
+        "accent": -628599,
+        "mention_highlight": 1357613496
+    },
+    "colors": {},
+    "drawable_tints": {}
+}
