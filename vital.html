@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vital waveform from decimal numbers</title>
+	<style>
+		#warning {
+			color:red;
+		}
+	</style>
+</head>
+<body>
+	<h1>vital waveform uhhhhh</h1>
+	<b>Input</b><br>decimal numbers from 0 to 1, separated by line breaks.<br>
+	<textarea id="source" cols="80" rows="8"></textarea><br>
+	<span id="warning"></span>
+	<button id="convert">Convert</button><br>
+	<b>Output</b><br>base64 encoded array of 2048 32-bit floats.<br>
+	<textarea id="output" cols="80" rows="8">output will be displayed here.</textarea>
+	<script>
+		document.getElementById("convert").onclick = function() {
+			var texts = document.getElementById("source").value.trim().split('\n');
+			var floats = [];
+			texts.forEach(function(f){
+				f.trim();
+				if (f != ''){
+					// lol
+					f = f.replace(',','.');
+					floats.push(parseFloat(f));
+				}
+			});
+			var rest = 2048 % floats.length;
+			if(rest == 0)
+				document.getElementById("warning").innerHTML = "";
+			else
+				document.getElementById("warning").innerHTML = "The amount of values you have entered ("+floats.length+") is not a factor of 2048. Ideally it should be, but it's not that huge a deal.<br>";
+			var bigfloats = [];
+			floats.forEach( function(f) {
+				for(let i = 0; i < Math.floor(2048 / floats.length); i++) {
+					bigfloats.push(f);
+				}
+				if(rest-- > 0)
+					bigfloats.push(f);
+			});
+			if(bigfloats.length != 2048)
+				alert("something has gone terribly wrong.");
+			else {	// https://gist.github.com/sketchpunk/6c60f6b78d4b66c729dcbf460ea06b42
+				let uint = new Uint8Array((new Float32Array(bigfloats)).buffer);
+				let str = btoa(String.fromCharCode.apply(null, uint));
+				document.getElementById("output").value = str;
+			}
+		};
+	</script>
+</body>
+</html>
