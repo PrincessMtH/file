@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>lil time demo</title>
+		<style>
+			div {
+				width: 200px;
+				height: 90pt;
+				text-align: center;
+				font-family: sans-serif;
+				font-weight: bold;
+				font-size: 30pt;
+				background-color: transparent;
+				transition: background .1s ease-in-out;
+				display: inline-block;
+				margin: 10px;
+				padding: 0;
+				line-height: 1;
+			}
+			.highlightm {
+				background-color:rgba(0, 191, 255, 0.5) !important;
+				transition: background 0s linear !important;
+			}
+			.highlightb {
+				background-color:rgba(0, 255, 0, 0.5) !important;
+				transition: background 0s linear !important;
+			}
+			.highlights {
+				background-color:rgba(255, 0, 0, 0.5) !important;
+				transition: background 0s linear !important;
+			}
+			body {
+				color: white;
+			}
+			h1 {
+				font-family:fantasy;
+			}
+		</style>
+	</head>
+	<body bgcolor=black>
+		<h1>EPIC BEAT SHIT, TIME SIG TEST!!!</h1>
+		<div id="measure"><br>MEASURE</div>
+		<div id="beat"><br>BEAT</div>
+		<div id="step"><br>STEP</div>
+		<form id="setup">
+			BPM:<br><input type="number" name="bpm" value="60"><br>
+			Time signature (numerator):<br><input type="number" name="n" value="4"><br>
+			Step division:<br><input type="number" name="bt" value="4">
+		</form><br>
+		<button onclick="start()">Start</button>
+
+		<script>
+			var timeChanges = [
+				{t: 0, b: 0, bpm: 60, n: 7, d: 4, bt: 4}//bt: [4, 4, 4, 4]}
+			];
+
+			var frameID = null;
+
+			var curStep;	// steps are wacky not real
+			var curBeat;
+			var curMeasure;
+			var startTime;
+
+			function start() {
+				if (frameID != null)
+					cancelAnimationFrame(frameID);
+				curStep = -1;
+				curBeat = -1;
+				curMeasure = -1;
+				startTime = performance.now();
+				var form = document.getElementById("setup");
+				timeChanges = [
+					{t: 0, b: 0, bpm: form.elements["bpm"].value, n: form.elements["n"].value, d: 4, bt: form.elements["bt"].value}
+				];
+				console.log('poop');
+				frameID = window.requestAnimationFrame(steppy);
+			}
+
+			function steppy(curTime) // time is in millis
+			{
+				curTime -= startTime;
+				var curTimeChange = timeChanges[0];
+				timeChanges.forEach(element => {
+					if (element.t <= curTime)
+						curTimeChange = element;
+				});
+				beatLen = ((60 / curTimeChange.bpm) * 1000);
+				var measure = document.getElementById("measure");
+				measure.classList.remove("highlightm");
+				var beat = document.getElementById("beat");
+				beat.classList.remove("highlightb");
+				var step = document.getElementById("step");
+				step.classList.remove("highlights");
+
+				// NO relative calc for cur(shit) yet, so no changes!!!
+
+				// denominator is basically not used, one beat = one COUNT
+				// in 4/4, u count 4 per measure, in 7/8 u count 7 per measure, so !!!!!!
+				// still debating whether this is actually the way to go or i should stick with one beat = one beatLen
+				if (Math.floor((curTime - curTimeChange.t) / beatLen / curTimeChange.n) > curMeasure) {
+					curMeasure = Math.floor((curTime - curTimeChange.t) / beatLen / curTimeChange.n);
+					measure.classList.add("highlightm"); // measureHit
+				}
+				if (Math.floor((curTime - curTimeChange.t) / beatLen) > curBeat) {
+					curBeat = Math.floor((curTime - curTimeChange.t) / beatLen);
+					beat.classList.add("highlightb"); // beatHit
+				}
+				if (Math.floor(((curTime - curTimeChange.t) / beatLen) * curTimeChange.bt) > curStep) {
+					curStep = Math.floor(((curTime - curTimeChange.t) / beatLen) * curTimeChange.bt);
+					step.classList.add("highlights"); // stepHit
+				}
+
+				// loop back
+				frameID = window.requestAnimationFrame(steppy);
+			}
+		</script>
+	</body>
+</html>
