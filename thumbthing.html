@@ -1,0 +1,98 @@
+<html><head><title>thumbnail previewer</title><style>
+	body {
+		font-family: Roboto, Arial, sans-serif;
+		font-size: 20pt;
+		margin: 32px;
+	}
+	#container {
+		width: 1280px;
+		padding: 0px;
+		margin: auto;
+	}
+	#thumb {
+		background-size: auto;
+		object-fit: cover;
+	}
+	#thumb:hover {
+		opacity: 80%;
+		cursor: pointer;
+	}
+	#vidtitle {
+		font-size: 40pt;
+		font-weight: 500;
+		margin-block-start: 0.333em;
+		margin-block-end: 0.333em;
+	}
+	.meta {
+		font-size: 32pt;
+		font-weight: 400;
+		color: rgb(96, 96, 96);
+		margin-block-start: 0.2em;
+		margin-block-end: 0.2em;
+	}
+	badge {
+		display: inline-flex;
+		fill: rgb(96, 96, 96);
+		width: 32pt;
+		height: 32pt;
+		margin-left: 8pt;
+		vertical-align: middle;
+	}
+	.hidden {
+		fill: transparent;
+	}
+	badge:hover {
+		fill: rgb(176, 176, 176);
+	}
+	badge:active {
+		fill: rgb(46, 46, 46);
+	}
+	#vidlength {
+		color: white;
+		font-weight: 500;
+		font-size: 28pt;
+		background-color: rgb(0 0 0 / 80%);
+		border-radius: 10pt;
+		padding: 5pt;
+		bottom: 22pt;
+		right: 16pt;
+		position: absolute;
+	}
+
+</style></head><body> <div id="container">
+	<input type="file" style="display:none;" id="input"><span style="position: relative;"><img id="thumb" src="https://i.ytimg.com/vi//maxresdefault.jpg" width="1280" height="720" onclick="input.click();"></img><span id="vidlength" contenteditable="true">1:23:45</span></span>
+	<p id="vidtitle" contenteditable="true">CRYPTO BRO reacts to CRINGE crypto FAILS!</p>
+	<p class="meta"><span id="vidauthor" contenteditable="true">Toney Zart</span><badge class="meta" onclick="toggleverif()"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope yt-icon"><path d="M12,2C6.5,2,2,6.5,2,12c0,5.5,4.5,10,10,10s10-4.5,10-10C22,6.5,17.5,2,12,2z M9.8,17.3l-4.2-4.1L7,11.8l2.8,2.7L17,7.4 l1.4,1.4L9.8,17.3z" class="style-scope yt-icon"></path></g></svg></badge></p>
+	<p id="vidmeta" class="meta"><span contenteditable="true">7K views</span> · <span contenteditable="true">2 years ago</span></p>
+	<script type="text/javascript">
+		function toggleverif() {
+			var e = document.getElementsByTagName("badge")[0];
+			e.classList.toggle("hidden");
+		}
+		document.body.addEventListener('dragover', (event) => {
+			event.stopPropagation();
+			event.preventDefault();
+			event.dataTransfer.dropEffect = 'copy';
+		});
+		document.body.addEventListener('drop', (event) => {
+			event.stopPropagation();
+			event.preventDefault();
+			applyimage(event.dataTransfer.files[0]);
+		});
+		function applyimage(file) {
+			if (file.type && !file.type.startsWith('image/'))
+				return;
+			const reader = new FileReader();
+			reader.addEventListener('load', (event) => {
+				 document.getElementById("thumb").src = event.target.result;
+			});
+			reader.readAsDataURL(file);
+			console.log(file);
+			return;
+		}
+		const inputElement = document.getElementById('input');
+		inputElement.addEventListener('change', (event) => {
+			applyimage(event.target.files[0]);
+		});
+	</script>
+</div></body></html>
