@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<!-- thx to mj and brubsby and everyone else who make thingyies with funny apis i looked at AND TOCININ !!!! -->
+<!-- thx to mj and brubsby and AAAAAAidan and everyone else who make thingyies with funny apis i looked at AND TOCININ FOR THE OG ACHIEVEMENTS!!!!!! -->
 
 <html lang="en-US">
 <head>
@@ -51,7 +51,7 @@
 		async function fetchJson(args) {
 			const response = await fetch("https://siivagunner.fandom.com/api.php?origin=*&format=json&" + args, {method: 'GET'});
 			if (response.status != 200)
-				throw new Error('Fandom API responded with ' + response.status);
+				throw new Error('Fandom API responded with ' + response.status, {cause: response.status});
 			const json = await response.json();
 			return json;
 		}
@@ -82,9 +82,17 @@
 			const ripper = urlParams.has('ripper') ? urlParams.get('ripper') : 'MtH';
 			
 			// SET UP HEADER
-			const imgdata = await fetchJson("action=imageserving&wisTitle="+ripper);
-			if (imgdata != "error")
+			var imgdata;
+			var ripperPageExists = true;
+			
+			try {
+				imgdata = await fetchJson("action=imageserving&wisTitle="+ripper);
 				document.getElementById("profile-pic").src = imgdata.image.imageserving.split('/revision/')[0];
+			} catch(e) {
+				document.getElementById("profile-pic").src = "https://static.wikia.nocookie.net/siivagunner/images/b/b9/XX_QuestionMarks.png";
+				if (e.cause == 404)
+					ripperPageExists = false;
+			}
 			document.getElementById("name").innerText = ripper;
 			
 			//ACHIEVEMENT DATA!
@@ -95,7 +103,9 @@
 			} catch(e) {
 				throw new Error('Ripper may not have a category page.');
 			}
-			const userCategories = await fetchJson("action=query&prop=categories&titles="+ripper);
+			var userCategories = [];
+			if (ripperPageExists)
+				userCategories = await fetchJson("action=query&prop=categories&titles="+ripper);
 			
 			var rips = [];
 			var fcrips = [];
@@ -106,15 +116,15 @@
 			var visrips = [];
 			await getJason("https://siivagunner.fandom.com/api.php?origin=*&format=json&action=query&cmtitle=Category:Rips%20with%20visual%20elements&list=categorymembers&cmlimit=500", visrips);
 			visrips = await intersection(rips, visrips);
-			var snowrips = []; //used as temp rips !!
+			var grandrips = []; // doesnt need to stay used
 			var flintrips = [];
-			await getJason("https://siivagunner.fandom.com/api.php?origin=*&format=json&action=query&cmtitle=Category:Rips%20featuring%207%20GRAND%20DAD&list=categorymembers&cmlimit=500", snowrips);
+			await getJason("https://siivagunner.fandom.com/api.php?origin=*&format=json&action=query&cmtitle=Category:Rips%20featuring%207%20GRAND%20DAD&list=categorymembers&cmlimit=500", grandrips);
 			await getJason("https://siivagunner.fandom.com/api.php?origin=*&format=json&action=query&cmtitle=Category:Rips%20featuring%20Meet%20the%20Flintstones&list=categorymembers&cmlimit=500", flintrips);
-			flintrips = snowrips.concat(flintrips);
+			flintrips = grandrips.concat(flintrips);
 			flintrips = await intersection(rips, flintrips);
-			snowrips = [];
+			var snowrips = [];
 			await getJason("https://siivagunner.fandom.com/api.php?origin=*&format=json&action=query&cmtitle=Category:Rips%20featuring%20Snow%20halation&list=categorymembers&cmlimit=500", snowrips);
-			flintrips = await intersection(rips, snowrips);
+			snowrips = await intersection(rips, snowrips);
 			var nutrips = [];
 			await getJason("https://siivagunner.fandom.com/api.php?origin=*&format=json&action=query&cmtitle=Category:Rips%20featuring%20The%20Nutshack&list=categorymembers&cmlimit=500", nutrips);
 			nutrips = await intersection(rips, nutrips);
@@ -161,17 +171,22 @@
 			targetList.appendChild(buildAchievement(3, ripCount, 100));
 			// team status
 			targetList = unachievedList;
-			userCategories.query.pages[Object.keys(userCategories.query.pages)[0]].categories.forEach((cat) => {
-				if (cat.title == "Category:Team members")
-					targetList = achievementList;
-			});
-			targetList.appendChild(buildAchievement(4));
-			targetList = unachievedList;
-			userCategories.query.pages[Object.keys(userCategories.query.pages)[0]].categories.forEach((cat) => {
-				if (cat.title == "Category:Backroom members")
-					targetList = achievementList;
-			});
-			targetList.appendChild(buildAchievement(5));
+			if (ripperPageExists) {
+				userCategories.query.pages[Object.keys(userCategories.query.pages)[0]].categories.forEach((cat) => {
+					if (cat.title == "Category:Team members")
+						targetList = achievementList;
+				});
+				targetList.appendChild(buildAchievement(4));
+				targetList = unachievedList;
+				userCategories.query.pages[Object.keys(userCategories.query.pages)[0]].categories.forEach((cat) => {
+					if (cat.title == "Category:Backroom members")
+						targetList = achievementList;
+				});
+				targetList.appendChild(buildAchievement(5));
+			} else {
+				targetList.appendChild(buildAchievement(4));
+				targetList.appendChild(buildAchievement(5));
+			}
 			// fc count
 			targetList = achievementList;
 			if (fcrips.length == 0)
