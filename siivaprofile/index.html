@@ -84,7 +84,7 @@
 			// SET UP HEADER
 			const imgdata = await fetchJson("action=imageserving&wisTitle="+ripper);
 			if (imgdata != "error")
-				document.getElementById("profile-pic").src = imgdata.image.imageserving;
+				document.getElementById("profile-pic").src = imgdata.image.imageserving.split('/revision/')[0];
 			document.getElementById("name").innerText = ripper;
 			
 			//ACHIEVEMENT DATA!
