@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+
+<!-- thx to mj and brubsby and everyone else who make thingyies with funny apis i looked at AND TOCININ !!!! -->
+
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=REM:wght@100;300;500;700&display=swap" rel="stylesheet">
+	<script type="text/javascript" src="https://mj-014.github.io/Wiki-Shared-Item-Obtainer/multi_cat.js"></script>
+	<script type="text/javascript">
+		// pfp
+		//https://siivagunner.fandom.com/api.php?action=imageserving&wisTitle=MtH&format=json
+
+		//https://siivagunner.fandom.com/api.php?action=query&prop=images&imlimit=1&format=json&titles=MtH
+
+		const API_KEY = 'AIzaSyDNQ7x9MdVtJW2M299n6bjW8QtvCk_joNs';
+
+		const achievements = [
+			{name: "First Steps",	description: "Have your first rip accepted."},
+			{name: "Double Digits",	description: "Have 10 rips on the channel."},
+			{name: "50!!!",			description: "Have 50 rips on the channel."},
+			{name: "100 GRAND",		description: "Have 100 rips on the channel."},
+			
+			{name: "Welcome to Team!",	description: "Get invited to the SiIvaGunner team."},
+			{name: "Master Supreme",	description: "Become a backroom member."},
+			
+			{name: "Let's Collab!",		description: "Contribute to 1 fusion collab."},
+			{name: "Here's My Part",	description: "Contribute to 3 fusion collabs."},
+			{name: "Collabora-tron",	description: "Contribute to 5 fusion collabs."},
+			
+			{name: "It Moves!",			description: "Have 1 visual rip."},
+			{name: "Light Show",		description: "Have 3 visual rips."},
+			{name: "Sensory Overload",	description: "Have 5 visual rips."},
+			
+			{name: "7 Grand",		description: "Have 7 Flintstones rips."},
+			{name: "Snowman",		description: "Have 5 Snow Halation rips."},
+			{name: "Mixed Nuts",	description: "Have 5 Nutshack rips."},
+			{name: "Determined",	description: "Have 3 rips of Undertale."},
+			
+			{name: "Spotlight",		description: "Have a rip of yours set as the channel trailer."},
+			{name: "Not For Kids",	description: "Have a rip get age restricted."},
+			{name: "3D All-Stars",	description: "Remake a rip."},
+			
+			{name: "Look at Those Views",	description: "Have a rip with 100,000 views."},
+			{name: "Can't Stop Watching",	description: "Have a rip with 500,000 views."},
+			{name: "A Hit",					description: "Have a rip with 1,000,000 views."}
+		];
+
+		async function fetchJson(args) {
+			const response = await fetch("https://siivagunner.fandom.com/api.php?origin=*&format=json&" + args, {method: 'GET'});
+			if (response.status != 200)
+				throw new Error('Fandom API responded with ' + response.status);
+			const json = await response.json();
+			return json;
+		}
+
+		function buildAchievement(id, prog = 1, total = 1) {
+			const temp = total == 1 ? document.getElementById("template-noprog") : document.getElementById("template-prog");
+			const element = temp.content.cloneNode(true);
+			element.querySelector("h4").innerText = achievements[id].name;
+			element.querySelector(".achievement-desc").innerText = achievements[id].description;
+			element.querySelector("img").src = "ach/" + id + ".png";
+			if (total != 1) {
+				prog = Math.min(prog, total);
+				element.querySelector(".progress-text").innerText = prog.toLocaleString('en-US') + "/" + total.toLocaleString('en-US');
+				element.querySelector(".progress-inner").style = "width: calc(" + prog + "/" + total + "* 100%);";
+			}
+			return element;
+		}
+		
+		function buildProgThing(id, achievementList, unachievedList, arr, count) {
+			targetList = achievementList;
+			if (arr.length < count)
+				targetList = unachievedList;
+			targetList.appendChild(buildAchievement(id, arr.length, count));
+		}
+		
+		async function populate() {
+			const urlParams = new URLSearchParams(window.location.search);
+			const ripper = urlParams.has('ripper') ? urlParams.get('ripper') : 'MtH';
+			
+			// SET UP HEADER
+			const imgdata = await fetchJson("action=imageserving&wisTitle="+ripper);
+			if (imgdata != "error")
+				document.getElementById("profile-pic").src = imgdata.image.imageserving;
+			document.getElementById("name").innerText = ripper;
+			
+			//ACHIEVEMENT DATA!
+			const categoryInfo = await fetchJson("action=query&prop=categoryinfo&titles=Category:"+ripper);
+			var ripCount;
+			try {
+				ripCount = categoryInfo.query.pages[Object.keys(categoryInfo.query.pages)[0]].categoryinfo.pages;
+			} catch(e) {
+				throw new Error('Ripper may not have a category page.');
+			}
+			const userCategories = await fetchJson("action=query&prop=categories&titles="+ripper);
+			
+			var rips = [];
+			var fcrips = [];
+			await getJason("https://siivagunner.fandom.com/api.php?origin=*&format=json&action=query&cmtitle=Category:"+ripper+"&list=categorymembers&cmlimit=500", rips);
+			await getJason("https://siivagunner.fandom.com/api.php?origin=*&format=json&action=query&cmtitle=Category:SiIvaGunner%27s%20Original%20Fusion%20Collabs&list=categorymembers&cmlimit=500", fcrips);
+			fcrips = await intersection(rips, fcrips);
+			fcrips = fcrips.filter(x => x != "Shop Fusion Collab (OST Version)");
+			var visrips = [];
+			await getJason("https://siivagunner.fandom.com/api.php?origin=*&format=json&action=query&cmtitle=Category:Rips%20with%20visual%20elements&list=categorymembers&cmlimit=500", visrips);
+			visrips = await intersection(rips, visrips);
+			var snowrips = []; //used as temp rips !!
+			var flintrips = [];
+			await getJason("https://siivagunner.fandom.com/api.php?origin=*&format=json&action=query&cmtitle=Category:Rips%20featuring%207%20GRAND%20DAD&list=categorymembers&cmlimit=500", snowrips);
+			await getJason("https://siivagunner.fandom.com/api.php?origin=*&format=json&action=query&cmtitle=Category:Rips%20featuring%20Meet%20the%20Flintstones&list=categorymembers&cmlimit=500", flintrips);
+			flintrips = snowrips.concat(flintrips);
+			flintrips = await intersection(rips, flintrips);
+			snowrips = [];
+			await getJason("https://siivagunner.fandom.com/api.php?origin=*&format=json&action=query&cmtitle=Category:Rips%20featuring%20Snow%20halation&list=categorymembers&cmlimit=500", snowrips);
+			flintrips = await intersection(rips, snowrips);
+			var nutrips = [];
+			await getJason("https://siivagunner.fandom.com/api.php?origin=*&format=json&action=query&cmtitle=Category:Rips%20featuring%20The%20Nutshack&list=categorymembers&cmlimit=500", nutrips);
+			nutrips = await intersection(rips, nutrips);
+			var utrips = [];
+			await getJason("https://siivagunner.fandom.com/api.php?origin=*&format=json&action=query&cmtitle=Category:Undertale&list=categorymembers&cmlimit=500", utrips);
+			utrips = await intersection(rips, utrips);
+			var trailerips = []
+			await getJason("https://siivagunner.fandom.com/api.php?origin=*&format=json&action=query&cmtitle=Category:Featured%20videos&list=categorymembers&cmlimit=500", trailerips);
+			trailerips = await intersection(rips, trailerips);
+			var nsfwrips = []
+			await getJason("https://siivagunner.fandom.com/api.php?origin=*&format=json&action=query&cmtitle=Category:Age-restricted%20rips&list=categorymembers&cmlimit=500", nsfwrips);
+			nsfwrips = await intersection(rips, nsfwrips);
+			var remastrips = []
+			await getJason("https://siivagunner.fandom.com/api.php?origin=*&format=json&action=query&cmtitle=Category:Remastered%20rips&list=categorymembers&cmlimit=500", remastrips);
+			remastrips = await intersection(rips, remastrips);
+			
+			const sheetsResponse = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/1B7b9jEaWiqZI8Z8CzvFN1cBvLVYwjb5xzhWtrgs4anI/values:batchGet?key=${API_KEY}&ranges=SiIvaGunner!B2:B&ranges=SiIvaGunner!H2:H`, {method: 'GET'});
+			if (sheetsResponse.status != 200)
+				throw new Error('Google Sheets API responded with ' + sheetsResponse.status);
+			var sheets = await sheetsResponse.json();
+			var maxViews = 0;
+			for (var i = 0; i < sheets.valueRanges[0].values.length; i++) {
+				if (rips.includes(sheets.valueRanges[0].values[i][0]))
+					maxViews = Math.max(maxViews, sheets.valueRanges[1].values[i][0]);
+			}
+			
+			//SET UP ACHIEVES...
+			const achievementList = document.getElementById("achievement-list");
+			const unachievedList = document.getElementById("unachieved-list");
+			var targetList = achievementList;
+			
+			// rip count
+			if (ripCount == 0)
+				targetList = unachievedList;
+			targetList.appendChild(buildAchievement(0));
+			if (ripCount < 10)
+				targetList = unachievedList;
+			targetList.appendChild(buildAchievement(1, ripCount, 10));
+			if (ripCount < 50)
+				targetList = unachievedList;
+			targetList.appendChild(buildAchievement(2, ripCount, 50));
+			if (ripCount < 100)
+				targetList = unachievedList;
+			targetList.appendChild(buildAchievement(3, ripCount, 100));
+			// team status
+			targetList = unachievedList;
+			userCategories.query.pages[Object.keys(userCategories.query.pages)[0]].categories.forEach((cat) => {
+				if (cat.title == "Category:Team members")
+					targetList = achievementList;
+			});
+			targetList.appendChild(buildAchievement(4));
+			targetList = unachievedList;
+			userCategories.query.pages[Object.keys(userCategories.query.pages)[0]].categories.forEach((cat) => {
+				if (cat.title == "Category:Backroom members")
+					targetList = achievementList;
+			});
+			targetList.appendChild(buildAchievement(5));
+			// fc count
+			targetList = achievementList;
+			if (fcrips.length == 0)
+				targetList = unachievedList;
+			targetList.appendChild(buildAchievement(6));
+			buildProgThing(7, achievementList, unachievedList, fcrips, 3);
+			buildProgThing(8, achievementList, unachievedList, fcrips, 5);
+			// visual count
+			targetList = achievementList;
+			if (visrips.length == 0)
+				targetList = unachievedList;
+			targetList.appendChild(buildAchievement(9));
+			buildProgThing(10, achievementList, unachievedList, visrips, 3);
+			buildProgThing(11, achievementList, unachievedList, visrips, 5);
+			//sources
+			buildProgThing(12, achievementList, unachievedList, flintrips, 7);
+			buildProgThing(13, achievementList, unachievedList, snowrips, 5);
+			buildProgThing(14, achievementList, unachievedList, nutrips, 5);
+			buildProgThing(15, achievementList, unachievedList, utrips, 3);
+			//rip status
+			targetList = achievementList;
+			if (trailerips.length == 0)
+				targetList = unachievedList;
+			targetList.appendChild(buildAchievement(16));
+			targetList = achievementList;
+			if (nsfwrips.length == 0)
+				targetList = unachievedList;
+			targetList.appendChild(buildAchievement(17));
+			targetList = achievementList;
+			if (remastrips.length == 0)
+				targetList = unachievedList;
+			targetList.appendChild(buildAchievement(18));
+			//viewcounts
+			targetList = achievementList;
+			if (maxViews < 100000)
+				targetList = unachievedList;
+			targetList.appendChild(buildAchievement(19, maxViews, 100000));
+			if (maxViews < 500000)
+				targetList = unachievedList;
+			targetList.appendChild(buildAchievement(20, maxViews, 500000));
+			if (maxViews < 1000000)
+				targetList = unachievedList;
+			targetList.appendChild(buildAchievement(21, maxViews, 1000000));
+			
+			//set up final counte....
+			document.querySelector("#profile-progress .progress-text").innerText = achievementList.childElementCount.toLocaleString('en-US') + "/" + achievements.length.toLocaleString('en-US');
+			document.querySelector("#profile-progress .progress-inner").style = "width: calc(" + achievementList.childElementCount + "/" + achievements.length + "* 100%);";
+			
+			if (unachievedList.childElementCount == 0)
+				document.getElementById("unachieved").remove();
+			
+			document.getElementById("loading").style.opacity = 0;
+			setTimeout(() => {document.getElementById("loading").remove()}, 500);
+		}
+
+		async function run() {
+			try {
+				await populate();
+			} catch(e) {
+				document.getElementById("loading").innerText = e;
+			}
+		}
+
+		window.onload = function(){
+			console.log("starting... wish me luck!");
+			run();
+		}
+	</script>
+	<style type="text/css">
+		body {
+			margin: 0 auto;
+			padding: 0;
+			font-family: 'REM', Verdana, sans-serif;
+			background: #141414;
+			color: #ececec;
+			min-width: 500px;
+			font-size: 10pt;
+			max-width: 960px;
+			background-image: url("diag_12.png");
+			background-attachment: fixed;
+		}
+		header {
+			height: 200px;
+			padding: 25px;
+			background-image: linear-gradient(#202020, #424242);
+			position: relative;
+			overflow: hidden;
+			filter: drop-shadow(0px 10px 10px #14141480);
+		}
+		header img {
+			height: 200px;
+			filter: drop-shadow(10px 10px 10px #141414);
+		}
+		#name {
+			font-size: 60pt;
+			font-weight: 100;
+			position: absolute;
+			left: 250px;
+			top: 25px;
+			right: 25px;
+			overflow: clip;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			text-shadow: 3px 3px 3px #141414;
+		}
+		#profile-progress {
+			position: absolute;
+			left: 250px;
+			right: 25px;
+			bottom: 25px;
+			font-weight: 700;
+			font-size: 10pt;
+			line-height: 2;
+		}
+		.progress-outer {
+			height: 18px;
+			width: 100%;
+			max-width: 640px;
+			background: #565656;
+			position: relative;
+			filter: drop-shadow(5px 5px 5px #14141480);
+		}
+		.progress-inner {
+			height: 16px;
+			background: #cbcbcb;
+			position: absolute;
+			left: 1px;
+			top: 1px;
+		}
+		.progress-text {
+			width:100%;
+			font-size: 12pt;
+			text-align: center;
+			color:black;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			color: #4b6ce1;
+			font-weight: 700;
+			text-shadow: 1px 1px 3px #14141480;
+		}
+		main {
+			margin: 0px 10px;
+			padding: 25px;
+			background: #313131;
+		}
+		.achievement {
+			position: relative;
+			height: 65px;
+			font-weight: 100;
+			background: #141414;
+			line-height: 1.6;
+			display: flex;
+			align-items: center;
+			padding: 5px 10px;
+			margin-left: 80px;
+			margin-bottom: 10px;
+		}
+		.achievement h4 {
+			margin: 0;
+		}
+		.achievement-contents {
+			width: 100%;
+		}
+		.achievement img {
+			position: absolute;
+			left: -80px;
+			top: 0px;
+			width: 75px;
+			height: 75px;
+		}
+		#unachieved-list {
+			filter: grayscale(1) opacity(80%);
+		}
+		
+		#loading {
+			background-color: #141414;
+			position: fixed;
+			top:0;
+			left:0;
+			width:100%;
+			height:100%;
+			transition: opacity .5s;
+			color: red;
+			text-align: center;
+			font-size: 32pt;
+		}
+		#loader {
+			width: 52px;
+			height: 52px;
+			border: 8px solid #ececec;
+			border-radius: 50%;
+			border-bottom: 8px solid #ececec40;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			animation: rotation 1s linear infinite;
+		}
+		@keyframes rotation {
+			0% {
+				transform: translate(-50%, -50%) rotate(0deg);
+			}
+			100% {
+				transform: translate(-50%, -50%) rotate(360deg);
+			}
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<a href="https://siivagunner.fandom.com/wiki/MtH">
+			<img id="profile-pic" src="https://static.wikia.nocookie.net/siivagunner/images/e/e9/SiivaGunner_post-strike.png/revision/latest?cb=20190301022411">
+		</a>
+		<span id="name">SiIvaGunner</span>
+		<div id="profile-progress">
+			ACHIEVEMENT PROGRESS
+			<div class="progress-outer">
+				<div class="progress-inner" style="width: calc(1 / 10 * 100%);"></div>
+				<div class="progress-text">??/??</div>
+			</div>
+		</div>
+	</header>
+	<main>
+		<h3>Achievements</h3>
+		<div id="achievement-list">
+			<!-- ACHIEVEMENTS GO HERE!! -->
+		</div>
+		<h3 id="unachieved">Not yet achieved</h3>
+		<div id="unachieved-list">
+			<!-- UNACHIEVEMENTS GO HERE!! -->
+		</div>
+		<template id="template-noprog">
+		<div class="achievement">
+			<div class="achievement-contents">
+				<img src="achievement.jpg">
+				<h4>name</h4>
+				<span class="achievement-desc">description</span>
+			</div>
+		</div>
+		</template>
+		<template id="template-prog">
+		<div class="achievement">
+			<div class="achievement-contents">
+				<img src="achievement.jpg">
+				<h4>name</h4>
+				<span class="achievement-desc">description</span>
+				<div class="progress-outer">
+					<div class="progress-inner" style="width: calc(1 / 10 * 100%);"></div>
+					<div class="progress-text">1/10</div>
+				</div>
+			</div>
+		</div>
+		</template>
+	</main>
+	<div id="loading"><div id="loader"></div></div>
+</body>
+</html>
