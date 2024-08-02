@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>simple image tiler</title>
+	</head>
+	<body style="width:100%;height:100%;background-repeat:repeat;" onload="addimg();">
+		<div id="noimg">
+			<form action="">
+				<label for="img">Image URL: </label>
+				<input type="text" name="img">
+				<input type="submit" value="Load">
+			</form>
+		</div>
+		<script>
+			function addimg() {
+				const urlparams = new URLSearchParams(window.location.search);
+				if (!urlparams.has('img'))
+					return;
+				document.getElementById("noimg").style.display = "none";
+				document.body.style.backgroundImage = "url('"+urlparams.get('img')+"')";
+			}
+		</script>
+	</body>
+</html>
